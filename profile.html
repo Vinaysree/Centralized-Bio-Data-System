@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile Page</title>
+  <style>
+    body {
+          background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(background.jpg);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: whitesmoke;
+            color: #eee;
+            line-height: 1.6;
+            
+           /* Center content horizontally */
+        }
+        nav .logo p{
+          margin-top:1px;
+    float:left;
+    margin-left:10px;
+    color:white;
+    margin-right:900px;
+    font-weight:40px;
+    font-size: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+        nav {
+      
+            background-color: #800020;
+            height:60px;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
+            transition: opacity 0.3s ease-in-out;
+            width: 97%; /* Full width navigation */
+        }
+
+        
+       
+        nav a{
+    padding:8px;
+    font-family:sans-serif;
+    font-weight: 100;
+    font-size:16px;
+    color:white;
+    text-decoration:none;
+}
+.navbar{
+  margin-top:15px;
+  display:flex;
+  justify-content:flex-end;
+  align-items: center;
+  gap:8px;
+}
+nav a::after{
+    content:'';
+    background:white;
+    border-radius:100px;
+    position:absolute;
+    left:0;
+    bottom:0;
+    transition:0.2s;
+}
+nav a:hover::after{
+    height:2px;
+    width:100%;
+}
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 24px;
+      font-weight: 600;
+      margin-left:25px;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #666;
+      margin-left:25px;
+    }
+
+    .profile-card {
+      background: white;
+      color:black;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      width: 300px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+      font-size: 14px;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .profile-front {
+      color: #111;
+    }
+
+    .profile-back {
+      display: none;
+      margin-top: 16px;
+      color: #333;
+    }
+
+    .toggle-btn {
+      align-self: start;
+      background-color: #007aff;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 16px;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: #005fd4;
+    }
+
+    .profile-card.expanded .profile-back {
+      display: block;
+      animation: fadeIn 0.4s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    #user-profile,
+    #others-profiles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-left:25px;
+    }
+
+    img {
+      border-radius: 12px;
+      width: 100%;
+      object-fit: cover;
+      margin-bottom: 2px;
+    }
+
+    strong {
+      color: black;
+      display: inline-block;
+      min-width: 120px;
+      font-weight: 600;
+    }
+
+    .label {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo"><p>InfoEdge</p></div>
+    <div class="navbar">
+        <a href="biodata.html" class="nav-link">Home</a>
+        <a href="srp.html#about" class="nav-link">About</a>
+        <a href="srp.html#careers" class="nav-link">Careers</a>
+        <a href="srp.html#security&privacy" class="nav-link">Security</a>
+        <a href="srp.html#contact" class="nav-link">Contact</a>
+        <a href="profile.html" id="profile-icon" title="View Profile">
+          <img src="profile-icon.jpg" alt="Profile" style="width: 32px; height: 32px; cursor: pointer;">
+        </a>
+        
+    </div>
+</nav>
+  <h2>Your Matrimony Profile</h2>
+  <div id="user-profile"></div>
+
+  <h2>Your Job Profile</h2>
+<div id="job-profile" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: 25px;"></div>
+
+<h2>Your Insurance Profile</h2>
+<div id="insurance-profile" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: 25px;"></div>
+
+  <h2>Other Matrimony Profiles</h2>
+  <div id="others-profiles"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const email = sessionStorage.getItem("userEmail");
+      if (!email) {
+        alert("No user logged in");
+        return;
+      }
+
+      fetch(`http://localhost:3000/fetch-profile?email=${email}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.error) return alert(data.error);
+
+          const { user, others, table } = data;
+
+          const heading = document.createElement("h3");
+          //0heading.textContent = `Viewing data from: ${table?.toUpperCase() || 'Unknown Table'}`;
+          document.body.insertBefore(heading, document.getElementById("user-profile"));
+
+          const userDiv = document.getElementById("user-profile");
+          const userCard = createProfileCard(user, true);
+          userDiv.appendChild(userCard);
+
+          const othersDiv = document.getElementById("others-profiles");
+          if (!others || others.length === 0) {
+            othersDiv.innerHTML = "<p>No other profiles found.</p>";
+          } else {
+            others.forEach(profile => {
+              const card = createProfileCard(profile, false);
+              othersDiv.appendChild(card);
+            });
+          }
+
+        })
+        .catch(err => {
+          console.error("Fetch error:", err);
+          //alert("Failed to load profiles");
+        });
+    });
+    
+   // — Job —
+   document.addEventListener("DOMContentLoaded", () => {
+  const email = sessionStorage.getItem("userEmail");
+  if (!email) return;
+
+  fetch(`http://localhost:3000/fetch-job-profile?email=${email}`)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("No job profile found");
+      }
+      return res.json();
+    })
+    .then(data => {
+      console.log(data); // Add this to log the job profile
+      const container = document.getElementById("job-profile");
+      if (data.profile) {
+        container.appendChild(createProfileCard(data.profile, true));
+      } else {
+        container.innerHTML = "<p>No job biodata found.</p>";
+      }
+    })
+    .catch(err => {
+      console.error("Fetch job profile error:", err);
+    });
+});
+
+
+// — Insurance —
+document.addEventListener("DOMContentLoaded", () => {
+    const email = sessionStorage.getItem("userEmail");
+    if (!email) {
+      console.log("No user logged in");
+      return;
+    }
+
+    fetch(`http://localhost:3000/fetch-insurance-profile?email=${email}`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("No insurance profile found");
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log("Insurance data:", data); // Add this to log the insurance profile
+
+        const container = document.getElementById("insurance-profile");
+        
+        if (data.profile) {
+          // If profile data exists, create the profile card
+          container.appendChild(createProfileCard(data.profile, true));
+        } else {
+          // If no profile found, show a message
+          container.innerHTML = "<p>No insurance biodata found.</p>";
+        }
+      })
+      .catch(err => {
+        console.error("Fetch insurance profile error:", err);
+        //document.getElementById("insurance-profile").innerHTML = "<p>There was an error loading the insurance profile.</p>";
+      });
+  });
+
+
+    function createProfileCard(profile, isCurrentUser) {
+      const card = document.createElement("div");
+      card.className = "profile-card";
+
+      let imageHtml = '';
+      if (profile.profile_picture) {
+        imageHtml = `<img src="http://localhost:3000/uploads/${profile.profile_picture}" alt="Profile Picture">`;
+      }
+
+      const frontHtml = `
+        <div class="profile-front">
+          ${imageHtml}
+          <div><strong>Name:</strong> ${profile.full_name || "N/A"}</div>
+          <div><strong>Email:</strong> ${profile.email || "N/A"}</div>
+          <div><strong>Contact number:</strong> ${profile.contact_number || "N/A"}</div>
+          ${isCurrentUser ? "<div style='color: green; font-weight: bold;'>(You)</div>" : ""}
+        </div>
+      `;
+
+      let backHtml = `<div class="profile-back">`;
+      for (let key in profile) {
+        if (!["id", "full_name", "height", "religion", "profile_picture"].includes(key) && profile[key]) {
+          const label = key.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+          if (key.includes("file") || key.includes("proof")) {
+            backHtml += `<div><strong>${label}:</strong> 
+              <a href="http://localhost:3000/uploads/${profile[key]}" target="_blank">View File</a></div>`;
+          } else {
+            backHtml += `<div><strong>${label}:</strong> ${profile[key]}</div>`;
+          }
+        }
+      }
+      backHtml += `</div>`;
+
+      const toggleBtn = `<button class="toggle-btn" onclick="toggleDetails(this)">Show More</button>`;
+      card.innerHTML = frontHtml + backHtml + toggleBtn;
+      return card;
+    }
+
+    
+
+    function toggleDetails(button) {
+      const card = button.closest('.profile-card');
+      card.classList.toggle('expanded');
+      button.textContent = card.classList.contains('expanded') ? "Show Less" : "Show More";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const email = sessionStorage.getItem("userEmail");
+      if (!email) {
+        alert("No user logged in");
+        return;
+      }
+      fetchAvailableJobs();
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+      const email = sessionStorage.getItem("userEmail");
+      if (!email) {
+        alert("No user logged in");
+        return;
+      }
+      fetchavailableinsurances(email);
+    });
+
+  </script>
+
+<h2>Popular Jobs</h2>
+<div id="available-jobs" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: 25px;"></div>
+
+
+
+<script>
+  function fetchAvailableJobs() {
+  fetch("http://localhost:3000/fetch-jobs")
+    .then(res => res.json())
+    .then(jobs => {
+      const jobsContainer = document.getElementById("available-jobs"); // create this div in HTML
+      
+
+      if (jobs.length === 0) {
+        jobsContainer.innerHTML += "<p>No jobs available currently.</p>";
+      } else {
+        jobs.forEach(job => {
+          const card = document.createElement("div");
+          card.className = "profile-card";
+          card.innerHTML = `
+            <div><strong>Job Title:</strong> ${job.job_title}</div>
+            <div><strong>Category:</strong> ${job.job_category}</div>
+            <div><strong>Description:</strong> ${job.job_description}</div>
+            <div><strong>Salary:</strong> ₹${job.salary}</div>
+            <div><strong>Location:</strong> ${job.location}</div>
+          `;
+          jobsContainer.appendChild(card);
+        });
+      }
+    })
+    .catch(err => {
+      console.error("Fetch jobs error:", err);
+      alert("Failed to load available jobs");
+    });
+}
+</script>
+<h2>Best Insurance Policies</h2>
+<div id="available-insurances" style="display: flex; flex-wrap: wrap; gap: 30px; margin-left: 25px;"></div>
+<script>
+
+    function fetchavailableinsurances(email){
+      fetch(`http://localhost:3000/fetch-available-insurances?email=${email}`)
+    .then(res => res.json())
+    .then(data => {
+      const insurancesContainer = document.getElementById("available-insurances");
+
+      if (!data.hasInsuranceBiodata) {
+        insurancesContainer.innerHTML = "<p>No insurance biodata found. Please fill insurance form first.</p>";
+        return;
+      }
+
+      if (data.availableInsurances.length === 0) {
+        insurancesContainer.innerHTML = "<p>No insurance plans available currently.</p>";
+        return;
+      }
+
+      data.availableInsurances.forEach(insurance => {
+        const card = document.createElement("div");
+        card.className = "profile-card";
+        card.innerHTML = `
+          <div><strong>Insurance Name:</strong> ${insurance.insurance_name}</div>
+          <div><strong>Category:</strong> ${insurance.insurance_category}</div>
+          <div><strong>Company:</strong> ${insurance.company_name}</div>
+          <div><strong>Premium:</strong> ₹${insurance.premium_amount}</div>
+          <div><strong>Coverage:</strong> ₹${insurance.coverage_amount}</div>
+          <div><strong>Tenure:</strong> ${insurance.tenure_years} year(s)</div>
+          <div><strong>Description:</strong> ${insurance.description}</div>
+        `;
+        insurancesContainer.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error("Fetch insurance error:", err);
+      alert("Failed to load available insurances");
+    });
+}
+
+
+</script>
+</body>
+</html>

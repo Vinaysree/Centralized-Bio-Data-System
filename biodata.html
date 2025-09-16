@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetic Dynamic Bio-data Form</title>
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  integrity="sha512-xxZbI6hV02N9WxzWxS4m9KYZsGcIjh84GL0MgTgC3Zf3a+FZQSk2AAGwIuFf6gWmCgy9TR7ScKIVnBY8vD+AAw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css">
+
+
+    <style>
+      *{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+}
+        body {
+          background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(background.jpg);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: whitesmoke;
+            color: #eee;
+            line-height: 1.6;
+            
+           /* Center content horizontally */
+        }
+        nav .logo p{
+          margin-top:1px;
+    float:left;
+    margin-left:10px;
+    color:white;
+    margin-right:900px;
+    font-weight:40px;
+    font-size: 40px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+        nav {
+      
+            background-color: #800020;
+            height:60px;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
+            transition: opacity 0.3s ease-in-out;
+            width: 97%; /* Full width navigation */
+        }
+
+        
+       
+        nav a{
+    padding:8px;
+    font-family:sans-serif;
+    font-weight: 100;
+    font-size:16px;
+    color:white;
+    text-decoration:none;
+}
+.navbar{
+  margin-top:15px;
+  display:flex;
+  justify-content:flex-end;
+  align-items: center;
+  gap:8px;
+}
+nav a::after{
+    content:'';
+    background:white;
+    border-radius:100px;
+    position:absolute;
+    left:0;
+    bottom:0;
+    transition:0.2s;
+}
+nav a:hover::after{
+    height:2px;
+    width:100%;
+}
+.img1 {
+      border-radius: 12px;
+      width: 100%;
+      object-fit: cover;
+      margin-bottom: 2px;
+    }
+.form{
+  float:left;
+  margin-left:10px;
+}
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color:white;
+            opacity: 0.9;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .options {
+    padding: 20px;
+    margin: 0 auto 20px auto; /* center the container horizontally */
+    text-align: center;
+    width: 90%;
+    max-width: 300px; /* or same as .topcontainer width */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    
+    display: flex;
+    gap: 20px;
+    justify-content: center;  /* centers the cards horizontally */
+    align-items: center;       /* vertical alignment if height varies */
+    flex-wrap: wrap;           /* optional, wraps if not enough space */
+}
+
+
+        .options.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .category-card1 {
+            background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(matrimony.jpg);
+            background-size:80px 80px;
+            background-repeat:no-repeat;
+            color:white;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            height:30px;
+            display:flex;
+            justify-content: flex-end;
+            align-items:right;
+            text-align: right;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            opacity: 0.8;
+        }
+
+        .category-card2 {
+          background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(joblogo.jpg);
+            background-size:80px 80px;
+            background-repeat:no-repeat;
+            color:white;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            height:30px;
+            display:flex;
+            justify-content: flex-end;
+            align-items:center;
+            text-align: right;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            opacity: 0.8;
+        }
+        .category-card3 {
+            background-image: url(insurancelogo.jpg);
+            background-size:80px 80px;
+            background-repeat:no-repeat;
+            color:white;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            height:30px;
+            display:flex;
+            justify-content: flex-end;
+            align-items:center;
+            text-align: right;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            opacity: 0.8;
+        }
+        .category-card{
+          display:flex;
+          justify-content: center;
+    
+        }
+        .category-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            opacity: 1;
+        }
+
+        .category-card.selected {
+            border:#535252;
+            opacity: 1;
+            box-shadow: 0 4px 8px #535252;
+            transform: scale(1.02);
+        }
+        .generate button{
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          border:0;
+          margin-top: 20px;
+          outline:none;
+          font-size:16px;
+          width:150px;
+          height:30px;
+          border-radius:6px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+          color:black;
+          background-color:#F5F5DC;
+          cursor:pointer;
+        }
+        .container {
+            display: flex;
+            flex-direction: column; /* Display templates one below the other */
+            align-items: center; /* Center templates horizontally */
+            padding: 4px;
+            gap: 20px;
+            width: 90%;
+            max-width: 800px; /* Adjust max width for single column */
+            margin: 20px auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .rightcontainer {
+            margin-top: -40px;
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto 0 auto; /* pushed down a bit */
+  overflow: hidden;
+}
+
+.image-wrapper {
+  display: flex;
+  position: relative;
+  height: 450px; /* longer height */
+}
+
+.image-wrapper img {
+  width: 33.33%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: brightness(70%);
+}
+
+/* Zoom on hover */
+.image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay text styling */
+.overlay-text {
+  position: absolute;
+  top: 70%; /* lower than center */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 2.2em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.4); /* optional dark blur behind text */
+  padding: 15px 30px;
+  border-radius: 10px;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.reviews-section {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.reviews-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 20px;
+  padding: 10px;
+}
+
+.review-card {
+  flex: 0 0 250px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-header img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.name-designation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.name-designation h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.name-designation p {
+  font-size: 13px;
+  margin: 2px 0 0 0;
+}
+
+.review-card .text {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.review-card .stars {
+  color: gold;
+  font-size: 16px;
+  margin-top: 0;
+  text-align: left;
+}
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 40px; /* space for arrows */
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}
+.trust-section {
+  background-color: #021a0c; /* Dark sap green */
+  color:black;
+  padding: 60px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.trust-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.trust-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.trust-card {
+  background-color:rgba(245, 245, 245, 0.902); /* Slightly lighter green */
+  padding: 30px 20px;
+  color:black;
+  border-radius: 12px;
+  width: 260px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.trust-card:hover {
+ /* Hover light green */
+  transform: translateY(-10px);
+  
+}
+
+.trust-card i {
+  font-size: 36px;
+  color:black;
+  margin-bottom: 20px;
+}
+
+.trust-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.trust-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color:black;
+}
+.partners-section {
+  background-color:rgb(0, 6, 0);
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}
+
+.partners-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color:white;
+}
+
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.logos {
+  display: flex;
+  gap: 40px;
+  animation: scroll-logos 30s linear infinite;
+}
+
+.logos img {
+  height: 60px;
+  width:200px;
+  object-fit: contain;
+  filter: brightness(90%);
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logos img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.footer-section {
+  background-color: #0f1f17; /* Deep sap green */
+  color: #fff;
+  padding: 60px 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-col {
+  flex: 1 1 250px;
+}
+
+.footer-logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.footer-email,
+.footer-phone {
+  font-weight: 500;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 10px 0;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00ffcc;
+}
+
+.footer-social-icons {
+  font-size: 24px;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-social-icons i {
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social-icons i:hover {
+  color: #00ffcc;
+  transform: scale(1.2);
+}
+
+.underline {
+  display: inline-block;
+  height: 3px;
+  width: 30px;
+  background-color: #00ffcc;
+  margin-top: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 13px;
+  color: #aaa;
+}
+
+#bio-data-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.bio-data-template {
+  border: 2px solid #800020 !important;
+}
+
+
+
+.bio-data-template.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#form-selection {
+  display: block; /* Makes sure the selection area is displayed */
+
+}
+
+        .bio-data-template h2 {
+            color: #00aaff;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        .bio-data-template h3 {
+            color: #00aaff;
+            margin-top: 20px;
+            border-bottom: 1px solid #555;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .bio-data-template label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ddd;
+            opacity: 0.7;
+        }
+
+        .bio-data-template input[type="text"],
+        .bio-data-template input[type="email"],
+        .bio-data-template input[type="number"],
+        .bio-data-template input[type="date"],
+        .bio-data-template input[type="tel"],
+        .bio-data-template input[type="url"],
+        .bio-data-template select,
+        .bio-data-template textarea {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 0.9em;
+            color: #eee;
+            background-color: #444;
+            opacity: 0.8;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        }
+
+        .bio-data-template input:focus,
+        .bio-data-template select:focus,
+        .bio-data-template textarea:focus {
+            border-color: #00aaff;
+            box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+            opacity: 1;
+        }
+
+        .bio-data-template textarea {
+            min-height: 80px;
+        }
+
+        .bio-data-template button[type="submit"],
+        #back-to-categories {
+            background-color: #00aaff;
+            color: #222;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+            margin-top: 15px;
+            display: inline-block;
+            margin-right: 10px;
+            opacity: 0.9;
+            transform: scale(1);
+            box-shadow: 0 2px 5px rgba(0, 170, 255, 0.3);
+        }
+
+        .bio-data-template button[type="submit"]:hover,
+        #back-to-categories:hover {
+            background-color: #0088cc;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 170, 255, 0.4);
+            opacity: 1;
+        }
+
+        .template-footer {
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+
+        .error-message {
+            color: #ff4d4d;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+  <nav>
+    <div class="logo"><p>InfoEdge</p></div>
+    <div class="navbar">
+        <a href="srp.html#home" class="nav-link">Home</a>
+        <a href="srp.html#about" class="nav-link">About</a>
+        <a href="srp.html#careers" class="nav-link">Careers</a>
+        <a href="srp.html#security&privacy" class="nav-link">Security</a>
+        <a href="srp.html#contact" class="nav-link">Contact</a>
+        <a href="profile.html" id="profile-icon" title="View Profile">
+          <img src="profile-icon.jpg" alt="Profile" class="img1" style="width: 32px; height: 32px; cursor: pointer;">
+        </a>
+        
+    </div>
+</nav>
+<div class="topcontainer">
+  <div class="form" id="form-selection">
+    <h1>Select Bio-data Options</h1>
+    <div class="options visible" id="category-selection">
+        <div class="category-card category-card1" onclick="toggleCategory('matrimony')" id="matrimony-card">Matrimony</div>
+        <div class="category-card category-card2" onclick="toggleCategory('job')" id="job-card">Job</div>
+        <div class="category-card category-card3" onclick="toggleCategory('insurance')" id="insurance-card">Insurance</div>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+        <button id="generate-button" onclick="displayTemplates()" style="padding: 12px 24px; font-size: 16px; background-color: white; border: none; border-radius: 6px; cursor: pointer;">
+          Generate Bio-data
+        </button>
+      </div>
+      
+
+        </div>
+        </div>
+        <div class="container" id="bio-data-container">
+        </div>
+        <div class="rightcontainer">
+          <div class="image-wrapper">
+            <img src="mpic.jpg" alt="Photo 1" />
+            <img src="jpic.jpg" alt="Photo 2" />
+            <img src="ipic.jpg" alt="Photo 3" />
+            <div class="overlay-text">
+              <h2>Your vision, our mission.</h2>
+            </div>
+          </div>
+        </div>
+        <section class="reviews-section">
+            <h2 class="reviews-title">Customer Reviews</h2>
+        
+            <div class="carousel-wrapper">
+              <button class="carousel-arrow left-arrow">&#10094;</button>
+        
+              <div class="carousel-track-container" id="carousel-container">
+                <div class="carousel-track" id="carousel-track">
+                  
+                  <div class="review-card">
+                    <div class="review-header">
+                      <img src="neha.jpg" alt="User">
+                      <div class="name-designation">
+                        <h3>Meena Reddy</h3>
+                        <p>Matrimony User</p>
+                      </div>
+                    </div>
+                    <p class="text">Uploading my biodata was super easy. Within days, I started getting relevant proposals!</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                  </div>
+        
+                  <div class="review-card">
+                    <div class="review-header">
+                      <img src="akash.jpg" alt="User">
+                      <div class="name-designation">
+                        <h3>Akash Varma</h3>
+                        <p>Job Aspirant</p>
+                      </div>
+                    </div>
+                    <p class="text">This platform helped me create a professional resume and apply to multiple jobs in minutes.</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                  </div>
+        
+                  <div class="review-card">
+                    <div class="review-header">
+                      <img src="sunitha.jpg" alt="User">
+                      <div class="name-designation">
+                        <h3>Sunitha Rao</h3>
+                        <p>Insurance Consultant</p>
+                      </div>
+                    </div>
+                    <p class="text">I used the centralized biodata system to collect client details securely. Seamless experience!</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                  </div>
+        
+                  <div class="review-card">
+                    <div class="review-header">
+                      <img src="divya.jpg" alt="User">
+                      <div class="name-designation">
+                        <h3>Divya Menon</h3>
+                        <p>HR Recruiter</p>
+                      </div>
+                    </div>
+                    <p class="text">I could filter through candidate biodatas easily. The centralized format saved hours of time.</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                  </div>
+        
+                  <div class="review-card">
+                    <div class="review-header">
+                      <img src="rahul.jpg" alt="User">
+                      <div class="name-designation">
+                        <h3>Rahul Singh</h3>
+                        <p>Freelancer</p>
+                      </div>
+                    </div>
+                    <p class="text">With a single biodata link, I shared my profile with multiple companies. Very efficient!</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                  </div>
+        
+                </div>
+              </div>
+        
+              <button class="carousel-arrow right-arrow">&#10095;</button>
+            </div>
+          </section>
+
+          <section class="trust-section">
+            <h2 class="trust-title">Why Trust Us</h2>
+            <div class="trust-cards">
+              <div class="trust-card">
+                <i class="fab fa-fingerprint"></i>
+                <h3>Unique Profiles</h3>
+                <p>Every biodata is personalized and verified to ensure authenticity across jobs, matrimony, and services.</p>
+              </div>
+              <div class="trust-card">
+                <i class="fab fa-shield-alt"></i>
+                <h3>Data Privacy</h3>
+                <p>Your biodata is encrypted and securely stored. We never share it without your consent.</p>
+              </div>
+              <div class="trust-card">
+                <i class="fab fa-bolt"></i>
+                <h3>fabt Matching</h3>
+                <p>Instantly connect with suitable matches — be it for employment, marriage, or collaboration.</p>
+              </div>
+              <div class="trust-card">
+                <i class="fab fa-award"></i>
+                <h3>Trusted by Thousands</h3>
+                <p>With a growing community and high success rate, we’ve built trust across all sectors.</p>
+              </div>
+            </div>
+          </section>
+          
+          <section class="partners-section">
+            <h2 class="partners-title">Our Trusted Partners</h2>
+            <div class="logo-slider">
+              <div class="logos">
+                <!-- First Set of Logos -->
+                <img src="bharatmatrimony.jpg" alt="bharatmatrimony">
+                <img src="jeevansathi.avif" alt="jeevansathi">
+                <img src="policybazaar.avif" alt="policybazaar">
+                <img src="naukri.svg" alt="naukri.com">
+                <img src="shaadi.png" alt="shaadi.com">
+                <img src="indeed.png" alt="indeed">
+                <img src="linkedin.png" alt="linkedin">
+                <img src="maxbupa.png" alt="maxbupa">
+          
+                <!-- Duplicate Logos for seamless loop -->
+                <img src="lic.png" alt="lic">
+                <img src="sbilife.png" alt="sbi">
+                <img src="shriram.jpg" alt="shriram">
+                <img src="vedicmatrimony.webp" alt="vedicmatrimony">
+                <img src="upwork.png" alt="upwork">
+                <img src="telugum.png" alt="telugumatrimony">
+                <img src="hdfclife.png" alt="hdfclife">
+                <img src="indeed.png" alt="indeed">
+                <img src="linkedin.png" alt="linkedin">
+                <img src="maxbupa.png" alt="maxbupa">
+              </div>
+            </div>
+          </section>
+          <section class="footer-section">
+            <div class="footer-container">
+              <div class="footer-col">
+                <img src="srp logo.jpg" class="footer-logo" alt="SRP Logo">
+                <p class="footer-description">
+                  Simplify your biodata management with our smart, centralized system. Secure, accessible, and always up to date. Subscribe now to stay connected and organized!
+                </p>
+              </div>
+          
+              <div class="footer-col">
+                <h3>Office <span class="underline"></span></h3>
+                <p>Road No. 45</p>
+                <p>Banjara Hills</p>
+                <p>Hyderabad, PIN 500062, India</p>
+                <p class="footer-email">vs12sona@gmail.com</p>
+                <p class="footer-phone">+91-8374094222</p>
+              </div>
+          
+              <div class="footer-col">
+                <h3>Quick Links <span class="underline"></span></h3>
+                <ul class="footer-links">
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#careers">Careers</a></li>
+                  <li><a href="#security&privacy">Security & Privacy</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+              </div>
+          
+              <div class="footer-col">
+                <h3>Follow Us</h3>
+                <div class="footer-social-icons">
+                    <a href="#"><i class="fab fa-facebook" style="margin: 0 10px; color: #3b5998;"></i></a>
+                    <a href="#"><i class="fab fa-twitter" style="margin: 0 10px; color: #1da1f2;"></i></a>
+                    <a href="#"><i class="fab fa-instagram" style="margin: 0 10px; color: #e1306c;"></i></a>
+                    <a href="#"><i class="fab fa-linkedin" style="margin: 0 10px; color: #0077b5;"></i></a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div class="footer-bottom">
+              <p>Info Edge © 2025. All rights reserved.</p>
+            </div>
+          </section>
+          
+          
+    <script>
+        const categorySelection = document.getElementById('category-selection');
+        const bioDataContainer = document.getElementById('bio-data-container');
+        const matrimonyCard = document.getElementById('matrimony-card');
+        const jobCard = document.getElementById('job-card');
+        const insuranceCard = document.getElementById('insurance-card');
+
+        let selectedCategories = {
+            matrimony: false,
+            job: false,
+            insurance: false
+        };
+
+        // Initially make the category selection visible
+        setTimeout(() => {
+            categorySelection.classList.add('visible');
+        }, 100);
+
+        function toggleCategory(category) {
+            selectedCategories[category] = !selectedCategories[category];
+            const card = document.getElementById(`${category}-card`);
+            card.classList.toggle('selected', selectedCategories[category]);
+        }
+
+        function displayTemplates() {
+  scrollToTop(); // ✅ Smoothly scroll to the top
+
+  document.getElementById('form-selection').style.display = 'none';
+  document.querySelector('.topcontainer').style.display = 'none';
+
+  bioDataContainer.innerHTML = '';
+  categorySelection.classList.remove('visible');
+  bioDataContainer.classList.add('visible');
+  console.log("Selected categories:", selectedCategories);
+
+  if (selectedCategories.matrimony) {
+    addMatrimonyTemplate();
+  }
+  if (selectedCategories.job) {
+    addJobTemplate();
+  }
+  if (selectedCategories.insurance) {
+    addInsuranceTemplate();
+  }
+
+  if (selectedCategories.matrimony || selectedCategories.job || selectedCategories.insurance) {
+    const backButton = document.createElement('button');
+    backButton.id = 'back-to-categories';
+    backButton.textContent = 'Back to Categories';
+    backButton.onclick = goBackToCategories;
+    const footer = document.createElement('div');
+    footer.classList.add('template-footer');
+    footer.appendChild(backButton);
+    bioDataContainer.appendChild(footer);
+
+    const templates = bioDataContainer.querySelectorAll('.bio-data-template');
+    templates.forEach(template => {
+      const submitButton = template.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (validateForm(template)) {
+    submitBiodataForm(template); // ✅ This will handle correct category & form submission
+  }
+});
+
+      }
+    });
+  } else {
+    bioDataContainer.innerHTML = '<p style="text-align: center; color: #ddd;">Please select at least one bio-data option.</p>';
+    bioDataContainer.classList.remove('visible');
+    setTimeout(() => {
+      bioDataContainer.classList.add('visible');
+    }, 300);
+
+    setTimeout(() => {
+      goBackToCategories();
+    }, 2000);
+  }
+
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, 10);
+}
+
+        
+
+     function goBackToCategories() {
+  // Show all sections again
+  document.querySelector('.topcontainer').style.display = 'block';
+  document.getElementById('form-selection').style.display = 'block';
+  document.querySelector('.rightcontainer').style.display = 'block';
+  document.querySelector('.reviews-section').style.display = 'block';
+  document.querySelector('.trust-section').style.display = 'block';
+  document.querySelector('.partners-section').style.display = 'block';
+  document.querySelector('.footer-section').style.display = 'block';
+
+  // Show category options again
+  document.getElementById('category-selection').classList.add('visible');
+
+  // Hide the bio-data container
+  bioDataContainer.classList.remove('visible');
+  bioDataContainer.innerHTML = '';
+
+  // Reset selected categories
+  selectedCategories = {
+    matrimony: false,
+    job: false,
+    insurance: false
+  };
+
+  // ✅ Scroll to top
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 10);
+}
+
+        function validateForm(template) {
+            let isValid = true;
+            const inputs = template.querySelectorAll('input[required], select[required], textarea[required]');
+            inputs.forEach(input => {
+                const errorMessageId = `${input.name}-error`;
+                let errorMessageElement = template.querySelector(`#${errorMessageId}`);
+                if (!errorMessageElement) {
+                    errorMessageElement = document.createElement('span');
+                    errorMessageElement.classList.add('error-message');
+                    errorMessageElement.id = errorMessageId;
+                    input.parentNode.appendChild(errorMessageElement);
+                }
+                if (!input.value.trim()) {
+                    errorMessageElement.textContent = 'This field is required.';
+                    isValid = false;
+                } else {
+                    errorMessageElement.textContent = '';
+                }
+
+                // Specific validations
+                if (input.type === 'email' && input.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(input.value)) {
+                        errorMessageElement.textContent = 'Please enter a valid email address.';
+                        isValid = false;
+                    }
+                }
+
+                if (input.type === 'tel' && input.value.trim()) {
+                    const phoneRegex = /^[0-9]+$/;
+                    if (!phoneRegex.test(input.value)) {
+                        errorMessageElement.textContent = 'Please enter a valid phone number (numbers only).';
+                        isValid = false;
+                    } else {
+                        const phoneInput = template.querySelector(`input[name="${input.name}"]`);
+                        if (phoneInput) {
+                            phoneInput.value = input.value.replace(/[^0-9]/g, '');
+                        }
+                    }
+                }
+
+                if (input.type === 'number' && input.hasAttribute('min') && parseFloat(input.value) < parseFloat(input.getAttribute('min'))) {
+                    errorMessageElement.textContent = `Please enter a value greater than or equal to ${input.getAttribute('min')}.`;
+                    isValid = false;
+                }
+
+                if (input.type === 'number' && input.hasAttribute('max') && parseFloat(input.value) > parseFloat(input.getAttribute('max'))) {
+                    errorMessageElement.textContent = `Please enter a value less than or equal to ${input.getAttribute('max')}.`;
+                    isValid = false;
+                }
+
+                if (input.type === 'date' && input.value.trim()) {
+                    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+                    if (!dateRegex.test(input.value)) {
+                        errorMessageElement.textContent = 'Please enter a valid date (YYYY-MM-DD).';
+                        isValid = false;
+                    }
+                }
+
+                if (input.tagName === 'SELECT' && input.value === '') {
+                    errorMessageElement.textContent = 'Please select an option.';
+                    isValid = false;
+                }
+
+                // Text field validation (no numbers)
+                if (input.type === 'text' && input.classList.contains('no-numbers') && input.value.trim()) {
+                    const numbersRegex = /[0-9]/g;
+                    if (numbersRegex.test(input.value)) {
+                        errorMessageElement.textContent = 'This field should not contain numbers.';
+                        isValid = false;
+                        const textInput = template.querySelector(`input[name="${input.name}"]`);
+                        if (textInput) {
+                            texttextInput.value = textInput.value.replace(/[0-9]/g, '');
+                        }
+                    }
+                }
+            });
+            return isValid;
+        }
+
+        function normalizeFormData(data) {
+  return {
+    category:
+      data.occupation && data.linkedin_url ? "job" :
+      data.nominee_name && data.medical_certificate ? "insurance" :
+      "matrimony",
+
+    full_name: data.full_name || "",
+    date_of_birth: data.date_of_birth || "",
+    gender: data.gender || "",
+    marital_status: data.marital_status || "",
+    religion: data.religion || "",
+    caste: data.caste || "",
+    mother_tongue: data.mother_tongue || "",
+    nationality: data.nationality || "",
+    complexion: data.complexion || "",
+    physical_disability: data.physical_disability || "",
+
+    current_location: data.current_location || "",
+    current_address: data.current_address || "",
+    contact_number: data.contact_number || "",
+    email: data.email || "",
+
+    height: parseInt(data.height || 0),
+    weight: parseInt(data.weight || 0),
+
+    profile_picture: data.profile_picture || "",
+    id_proof: data.id_proof || "",
+    medical_certificate: data.medical_certificate || "",
+
+    occupation: data.occupation || "",
+    annual_income: data.annual_income || "",
+    linkedin_url: data.linkedin_url || "",
+    portfolio_url: data.portfolio_url || "",
+    summary_objective: data.summary_objective || "",
+    work_experience: data.work_experience || "",
+    education: data.education || "",
+    skills: data.skills || "",
+    projects: data.projects || "",
+    certifications: data.certifications || "",
+    reference: data.reference || "",
+    resume: data.resume || "",
+    experience_letter: data.experience_letter || "",
+
+    medical_conditions: data.medical_conditions || "",
+    habits: data.habits || "",
+
+    nominee_name: data.nominee_name || "",
+    nominee_relationship: data.nominee_relationship || "",
+    nominee_dob: data.nominee_dob || "",
+    nominee_address: data.nominee_address || "",
+
+    vehicle_registration: data.vehicle_registration || "",
+    vehicle_make_model: data.vehicle_make_model || "",
+    vehicle_year: parseInt(data.vehicle_year || 0),
+
+    property_address: data.property_address || "",
+    property_type: data.property_type || ""
+  };
+}
+
+
+
+        function addMatrimonyTemplate() {
+            console.log("addMatrimonyTemplate() called");
+
+            const template = document.createElement('div');
+            template.classList.add('bio-data-template', 'visible');
+            template.innerHTML = `
+               <div class="bio-data-template visible" style="width: 90vw; max-width: 100%; padding: 40px; background-color: black;box-sizing: border-box;">
+               
+  
+
+                <h2>Matrimony Bio-data</h2>
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-user"></i>
+      <h3>Personal Details</h3>
+    </div>
+    <label>Upload ID Proof (PDF or Image): <input type="file" name="id_proof" accept=".pdf, image/*" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);"></label>
+<label>Upload Profile Picture: <input type="file" name="profile_picture" accept="image/*" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);"></label>
+    <label>Full Name: <input type="text" name="full_name" required class="no-numbers" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Date of Birth: <input type="date" name="date_of_birth" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Gender: 
+      <select name="gender" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;">
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Marital Status: 
+      <select name="marital_status" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;">
+        <option value="">Select</option>
+        <option>Single</option>
+        <option>Married</option>
+        <option>Divorced</option>
+        <option>Widowed</option>
+      </select>
+    </label>
+    <label>Religion: <input type="text" name="religion" class="no-numbers" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Caste/Community: <input type="text" name="caste" class="no-numbers" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Mother Tongue: <input type="text" name="mother_tongue" class="no-numbers" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Nationality: <input type="text" name="nationality" required class="no-numbers" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Current Location: <input type="text" name="current_location" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Contact Number: <input type="tel" name="contact_number" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Email Address: <input type="email" name="email" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Height (cm): <input type="number" name="height" min="50" max="250" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Weight (kg): <input type="number" name="weight" min="20" max="200" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Complexion: <input type="text" name="complexion" class="no-numbers" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Physical Disability: 
+      <select name="physical_disability" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </label>
+    <button type="submit">Submit Matrimony Details</button>
+    
+
+
+  </div>
+
+            `;
+            const phoneInputMatrimony = template.querySelector('input[name="contact_number"]');
+            if (phoneInputMatrimony) {
+                phoneInputMatrimony.addEventListener('input', function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
+            }
+            const noNumberInputsMatrimony = template.querySelectorAll('.no-numbers');
+            noNumberInputsMatrimony.forEach(input => {
+                input.addEventListener('input', function() {
+                    this.value = this.value.replace(/[0-9]/g, '');
+                });
+            });
+            bioDataContainer.appendChild(template);
+        }
+
+        function addJobTemplate() {
+            const template = document.createElement('div');
+            template.classList.add('bio-data-template', 'visible');
+            template.innerHTML = `
+              <style>
+  .bio-data-template input,
+  .bio-data-template select,
+  .bio-data-template textarea {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    color: #222;
+    padding: 6px 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 12px;
+  }
+</style>
+<!-- JOB TEMPLATE WITH CARD LAYOUT & ICONS -->
+<div class="bio-data-template visible" style="width: 90vw; max-width: 100%; background-color:black;padding: 40px; box-sizing: border-box;">
+
+  
+
+    <h2>Job Application Bio-data</h2>
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-address-card"></i>
+      <h3>Contact Information</h3>
+    </div>
+    <label>Upload Resume (PDF or DOC): <input type="file" name="resume" accept=".pdf,.doc,.docx" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);"></label>
+<label>Upload Experience Letter (Optional): <input type="file" name="experience_letter" accept=".pdf,image/*" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);"></label>
+    <label>Full Name: <input type="text" name="full_name" required class="no-numbers" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Email: <input type="email" name="email" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Phone: <input type="tel" name="contact_number" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Current Address: <input type="text" name="current_address" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>LinkedIn Profile URL (Optional): <input type="url" name="linkedin_url" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Portfolio URL (if applicable): <input type="url" name="portfolio_url" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-briefcase"></i>
+      <h3>Work Experience</h3>
+    </div>
+    <label><textarea name="work_experience" placeholder="Company, Job Title, Dates, Responsibilities..." style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></textarea></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-graduation-cap"></i>
+      <h3>Education</h3>
+    </div>
+    <label><textarea name="education" placeholder="Degree, Institution, Dates..." required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></textarea></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-lightbulb"></i>
+      <h3>Skills</h3>
+    </div>
+    <label><input type="text" name="skills" placeholder="e.g., JavaScript, Design, Leadership..." required class="no-numbers" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-code"></i>
+      <h3>Projects (Optional)</h3>
+    </div>
+    <label><textarea name="projects" placeholder="Project Name, Description, Technologies..." style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></textarea></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-certificate"></i>
+      <h3>Certifications (Optional)</h3>
+    </div>
+    <label><input type="text" name="certifications" placeholder="Certification names, separated by commas" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-users"></i>
+      <h3>References (Optional)</h3>
+    </div>
+    <label><textarea name="reference" placeholder="List references or type 'Available upon request'" style="background-color: #ffffff; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></textarea></label>
+  </div>
+
+  <button type="submit" >Submit Job Details</button>
+
+</div>
+            `;
+            const phoneInputJob = template.querySelector('input[name="contact_number"]');
+            if (phoneInputJob) {
+                phoneInputJob.addEventListener('input', function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
+            }
+            const noNumberInputsJob = template.querySelectorAll('.no-numbers');
+            noNumberInputsJob.forEach(input => {
+                input.addEventListener('input', function() {
+                    this.value = this.value.replace(/[0-9]/g, '');
+                });
+            });
+            bioDataContainer.appendChild(template);
+        }
+
+        function addInsuranceTemplate() {
+            const template = document.createElement('div');
+            template.classList.add('bio-data-template', 'visible');
+            template.innerHTML = `
+          <div class="bio-data-template visible" style="width: 90vw; max-width: 100%; background-color:black;padding: 40px; box-sizing: border-box;">
+ 
+
+
+            <h2>Insurance Application Bio-data</h2>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-id-card"></i>
+      <h3>Basic Information</h3>
+    </div>
+    <label>Upload ID Proof: <input type="file" name="id_proof" accept=".pdf,image/*" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);"></label>
+<label>Upload Medical Certificate (Optional): <input type="file" name="medical_certificate" accept=".pdf,image/*" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 12px 14px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);"></label>
+
+    <label>Full Name: <input type="text" name="full_name" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Date of Birth: <input type="date" name="date_of_birth" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Gender: 
+      <select name="gender" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;">
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </label>
+    <label>Marital Status: 
+      <select name="marital_status" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;">
+        <option value="">Select</option>
+        <option>Single</option>
+        <option>Married</option>
+        <option>Divorced</option>
+        <option>Widowed</option>
+      </select>
+    </label>
+    <label>Occupation: <input type="text" name="occupation" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Annual Income: <input type="number" name="annual_income" required min="0" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Nationality: <input type="text" name="nationality" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Current Address: <input type="text" name="current_address" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Contact Number: <input type="tel" name="contact_number" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Email Address: <input type="email" name="email" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>PAN Card Number (or other relevant ID): <input type="text" name="pan_number" required style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-notes-medical"></i>
+      <h3>Health Information</h3>
+    </div>
+    <label>Height (cm): <input type="number" name="height" min="50" max="250" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Weight (kg): <input type="number" name="weight" min="20" max="200" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Any pre-existing medical conditions: <textarea name="medical_conditions" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></textarea></label>
+    <label>Habits (Smoking, Alcohol consumption): <textarea name="habits" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></textarea></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-user-shield"></i>
+      <h3>Nominee Details</h3>
+    </div>
+    <label>Nominee's Full Name: <input type="text" name="nominee_name" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Nominee's Relationship: <input type="text" name="nominee_relationship" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Nominee's Date of Birth: <input type="date" name="nominee_dob" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Nominee's Address: <input type="text" name="nominee_address" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-car"></i>
+      <h3>Vehicle Details</h3>
+    </div>
+    <label>Vehicle Registration: <input type="text" name="vehicle_registration" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Vehicle Make and Model: <input type="text" name="vehicle_make_model" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Vehicle Year: <input type="number" name="vehicle_year" min="1900" max="2099" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fab fa-building"></i>
+      <h3>Property Details</h3>
+    </div>
+    <label>Property Address: <input type="text" name="property_address" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+    <label>Property Type: <input type="text" name="property_type" style="background-color: #f9f9f9; border: 1px solid #ccc; color: #222; padding: 6px 10px; border-radius: 4px;"></label>
+  </div>
+
+  <button type="submit">Submit Insurance Details</button>
+  
+</div>
+</div>
+</div>
+
+
+
+            `;
+            const phoneInputInsurance = template.querySelector('input[name="contact_number"]');
+            if (phoneInputInsurance) {
+                phoneInputInsurance.addEventListener('input', function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
+            }
+            const noNumberInputsInsurance = template.querySelectorAll('.no-numbers');
+            noNumberInputsInsurance.forEach(input => {
+                input.addEventListener('input', function() {
+                    this.value = this.value.replace(/[0-9]/g, '');
+                });
+            });
+            bioDataContainer.appendChild(template);
+        }
+    </script>
+
+<script>
+    const track = document.getElementById('carousel-track');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    let currentIndex = 0;
+
+    const cardWidth = 290; // card width + margin
+    const totalCards = track.children.length;
+
+    leftArrow.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+      }
+    });
+
+    rightArrow.addEventListener('click', () => {
+      if (currentIndex < totalCards - 3) {
+        currentIndex++;
+        track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+      }
+    });
+  </script>
+  
+  <script>
+    window.onload = function () {
+      window.scrollTo(0, 0);
+    };
+  
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  
+    window.onload = function () {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }, 10);
+    };
+  </script>
+  
+  <script>
+    function getSelectedCategory() {
+  if (selectedCategories.matrimony) return "matrimony";
+  if (selectedCategories.job) return "job";
+  if (selectedCategories.insurance) return "insurance";
+  return "unknown";
+}
+
+function getFormData(template) {
+  const inputs = template.querySelectorAll("input, select, textarea");
+  const data = {};
+
+  inputs.forEach(input => {
+    if (input.name) {
+      data[input.name] = input.value;
+    }
+  });
+
+  data.category = getSelectedCategory();
+  return data;
+}
+function submitBiodataForm(template) {
+  const formData = new FormData();
+
+  // ✅ Get the <h2> of the current form template
+  const heading = template.querySelector("h2")?.textContent.toLowerCase();
+
+  let category = "";
+  if (heading.includes("matrimony")) category = "matrimony";
+  else if (heading.includes("job")) category = "job";
+  else if (heading.includes("insurance")) category = "insurance";
+
+  // ✅ Append the correct category
+  sessionStorage.setItem("userCategory", category); // 🟢 Save selected category
+
+  formData.append("category", category);
+
+  // Collect all form inputs
+  const inputs = template.querySelectorAll("input, select, textarea");
+  inputs.forEach(input => {
+    if (input.name) {
+      if (input.type === "file" && input.files.length > 0) {
+        formData.append(input.name, input.files[0]);
+      } else {
+        formData.append(input.name, input.value);
+      }
+    }
+  });
+
+  // Debug the actual form data
+  for (let pair of formData.entries()) {
+    console.log(`${pair[0]}: ${pair[1]}`);
+  }
+
+  // Send the request
+  fetch("http://localhost:3000/submit-biodata", {
+    method: "POST",
+    body: formData
+  })
+    .then(res => res.text())
+    .then(data => {
+      alert(data);
+      console.log("✅ Server response:", data);
+    })
+    .catch(err => {
+      alert("❌ Error submitting form");
+      console.error("Submission error:", err);
+    });
+}
+
+window.submitBiodataForm = submitBiodataForm;
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,772 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Infoedge</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+        <style>
+            .toast {
+              position: fixed;
+              top: 20px;
+              right: 20px;
+              background-color: #2ecc71; /* success green */
+              color: white;
+              padding: 15px 25px;
+              border-radius: 8px;
+              font-size: 16px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+              opacity: 0;
+              pointer-events: none;
+              transition: opacity 0.5s ease, transform 0.5s ease;
+              transform: translateY(-20px);
+              z-index: 1000;
+            }
+          
+            .toast.show {
+              opacity: 1;
+              transform: translateY(0);
+              pointer-events: auto;
+            }
+          
+            .toast.error {
+              background-color: #e74c3c; /* red */
+            }
+
+            /* SECURITY SECTION */
+/* === Privacy & Security Section === */
+.security-section {
+  background: radial-gradient(#071d2b, #020c15);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00f7ff;
+  text-shadow: 0 0 10px rgba(0, 247, 255, 0.4);
+}
+
+/* Layout: text on left, cubes on right */
+.security-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 300px;
+  margin-top: 40px;
+}
+
+.security-text {
+  max-width: 500px;
+  flex: 1 1 400px;
+  margin-left:40px;
+}
+
+.security-description {
+  color: #aee4f8;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.security-visual {
+  flex-shrink: 0;
+  flex: 0 0 auto;
+  margin-top:70px;
+}
+
+/* === Security Feature Points === */
+.security-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.feature {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid #00f7ff55;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  color: #e6faff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeUp 1s ease-in-out;
+  transition: transform 0.3s ease;
+}
+.feature:hover {
+  transform: scale(1.05);
+  background: rgba(0, 255, 255, 0.2);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === 3D Cube Grid Layout === */
+.cube-grid-fixed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+.cube-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* Connecting Horizontal Line */
+.line-horizontal {
+  width: 40px;
+  height: 2px;
+  background: #00f7ff;
+  box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff80;
+  animation: pulseLine 2s ease-in-out infinite;
+}
+
+/* Connecting Vertical Lines */
+.cube-verticals {
+  display: flex;
+  justify-content: center;
+  gap: 140px;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.line-vertical {
+  width: 2px;
+  height: 40px;
+  background: #00f7ff;
+  box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff80;
+  animation: pulseLine 2s ease-in-out infinite;
+}
+
+@keyframes pulseLine {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* === 3D Cube Styles === */
+.cube-wrapper {
+  width: 100px;
+  height: 100px;
+  perspective: 1000px;
+  position: relative;
+}
+
+.cube {
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  position: relative;
+  animation: rotateY 10s linear infinite;
+}
+
+@keyframes rotateY {
+  from { transform: rotateY(0deg) rotateX(0deg); }
+  to   { transform: rotateY(360deg) rotateX(360deg); }
+}
+
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid #00f7ff88;
+  box-shadow: 0 0 10px #00f7ff44;
+}
+
+/* Cube Face Positioning */
+.front  { transform: rotateY(0deg) translateZ(50px); }
+.back   { transform: rotateY(180deg) translateZ(50px); }
+.right  { transform: rotateY(90deg) translateZ(50px); }
+.left   { transform: rotateY(-90deg) translateZ(50px); }
+.top    { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+/* Highlighted cube (special block) */
+.cube.highlight .face {
+  background: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 20px #00f7ff, inset 0 0 10px #00f7ff;
+}
+
+/* === Responsive === */
+@media (max-width: 992px) {
+  .security-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .security-text,
+  .security-visual {
+    text-align: center;
+  }
+
+  .security-features {
+    justify-content: center;
+  }
+}
+
+          </style>
+          
+    </head>
+    <body>
+        <!--Home section-->
+        <div id="toast" class="toast"></div>
+
+        <div class="banner">
+            <nav>
+                <div class="logo"><p>InfoEdge</p></div>
+                <div class="navbar">
+                    <a href="srp.html#home" class="nav-link">Home</a>
+                    <a href="srp.html#about" class="nav-link">About</a>
+                    <a href="srp.html#careers" class="nav-link">Careers</a>
+                    <a href="srp.html#security&privacy" class="nav-link">Security & Privacy</a>
+                    <a href="srp.html#contact" class="nav-link">Contact</a>
+                </div>
+            </nav>
+          
+                <section id="home" class="home-section">
+                  <div class="home-left">
+                    <div class="pictures-container">
+                        <img src="h1.jpg" class="picture" alt="Image 1">
+                        <img src="h5.jpg" class="picture" alt="Image 2">
+                        <img src="h2.jpg" class="picture" alt="Image 3">
+                    </div>
+                
+                    <div class="home-content">
+                        <h1>Welcome to InfoEdge</h1>
+                        <p>Your trusted partner for career growth, connections, and security.</p>
+                    </div>
+                </div>
+                
+                <!-- Your login/register form on right side remains same -->
+                
+              
+                <div class="form-box active" id="login-form">
+                    <div class="form-value">
+                      <form id="loginform">
+                            <h2>Login</h2>
+                            <!-- <?=showError($errors['login']); ?> -->
+                            <div class="inputbox">
+                                <input type="email" name="email" id="email" required >
+                                <label for="">Email</label>
+                            </div>
+                            <div class="inputbox">
+                                <input type="password" name="password" id="password"required>
+                                <label for="">Password</label>
+                            </div>
+                            <div class="forget">
+                                <label for=""><input type="checkbox">Remember Me<a href="#" class="nav-link">Forgot Password?</a></label>
+                            </div>
+                            <button type="submit" name="login">Log in</button>
+                            <div class="register">
+                                <p>Don't have an account? <a href="#" onclick="showForm('register')" class="nav-link">Register</a></p>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+                <div class="form-box " id="register-form">
+                    <div class="form-value">
+                      <form id="registerform">
+
+
+                            <h2>Register</h2>
+                            <!-- <?=showError($errors['register']); ?> -->
+                            <div class="inputbox">
+                                <input type="text" name="name" required>
+                                <label for="">Name</label>
+                            </div>
+                            <div class="inputbox">
+                                <input type="email" name="email" required>
+                                <label for="">Email</label>
+                            </div>
+                            <div class="inputbox">
+                                <input type="password" name="password" required>
+                                <label for="">Password</label>
+                            </div>
+                        
+                            <button type="submit" name="register">Register</button>
+                            <div class="register">
+                                <p>Already have an account? <a href="#" onclick="showForm('login')" class="nav-link">Login</a></p>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="register-message" style="color: green; font-weight: bold; margin-top: 10px;"></div>
+
+                </section>
+                
+                
+              </div>
+                <!--About section-->
+                <div id="about" class="about-section">
+                <div class="about-row">
+                  <div class="about-col">
+                    <h1 class="section-title">About Us</h1>
+                    <p>
+                      Our Centralized Bio Data System streamlines personal and professional data management in one secure platform.
+                    </p>
+                    <br>
+                    <p>
+                      We ensure quick access, easy updates, and efficient sharing for institutions and individuals alike.
+                    </p>
+                    <br>
+                    <p>
+                      Our vision is to create a trusted ecosystem where biodata management is smart, centralized, and accessible — for everyone.
+                    </p>  
+                    <button type="button">Learn More</button>
+                  </div>
+                    <div class="about-col">
+                      <div class="card card1">
+                          <h5>Get a Job</h5>
+                      </div>
+                      <div class="card card2">
+                        <h5>Matrimony</h5>
+                    </div>
+                    <div class="card card3">
+                      <h5>Insurance</h5>
+                  </div>
+                  <div class="card card4">
+                    <h5>Mutual Funds</h5>
+                </div>
+                </div>
+              </div>
+              </div>
+              <div class="careers-title"><h2>Careers</h2></div>
+          <!--Careers section-->
+          <div id="careers" class="career-section">
+            <!-- carousel -->
+    <div class="carousel">
+      <!-- list item -->
+      <div class="list">
+          <div class="item">
+              <img src="black img.avif">
+              <div class="content">
+                  <div class="title">FRONT-END and BACK-END DEVELOPER</div>
+                  <div class="topic">We're Recruiting!</div>
+                  <div class="des">
+                      <!-- lorem 50 -->
+                      Join us to craft seamless and responsive user interfaces for our biodata platform.
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>RECRUITMENT FAQs</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="black img.avif">
+              <div class="content">
+                  
+                  <div class="title">CYBERSECURITY SPECIALIST</div>
+                  <div class="topic">We're Recruiting!</div>
+                  <div class="des">
+                    Protect sensitive biodata with cutting-edge security solutions—your expertise is our shield.
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>RECRUITMENT FAQs</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="black img.avif">
+              <div class="content">
+                  
+                  <div class="title">CLOUD ENGINEER</div>
+                  <div class="topic">We're Recruiting!</div>
+                  <div class="des">
+                    Join us to deploy and scale our centralized biodata system on secure, high-performance cloud platforms.
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>RECRUITMENT FAQs</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="black img.avif">
+              <div class="content">
+                  <div class="title">DATA ANALYST</div>
+                  <div class="topic">We're Recruiting!</div>
+                  <div class="des">
+                    Turn biodata into insights—join us to drive data-driven decisions.
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>RECRUITMENT FAQs</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- list thumnail -->
+      <div class="thumbnail">
+          <div class="item">
+              <img src="dataanalyst.jpg">
+              <div class="content">
+                  <div class="title">
+                  </div>
+                  <div class="description">
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="front&backend.jpg">
+              <div class="content">
+                  <div class="title">
+                  </div>
+                  <div class="description">
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="cybersecurity.jpg">
+              <div class="content">
+                  <div class="title">
+                  </div>
+                  <div class="description">
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="cloud.jpg">
+              <div class="content">
+                  <div class="title">
+                  </div>
+                  <div class="description">
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- next prev -->
+
+      <div class="arrows">
+          <button id="prev"><</button>
+          <button id="next">></button>
+      </div>
+      <!-- time running -->
+      <div class="time"></div>
+  </div>
+  </div>
+
+  <script src="srp.js"></script>
+  <!-- Privacy & Security Section -->
+  <section id="security&privacy" class="security-section">
+    
+    <div class="security-content">
+      <!-- Left Content -->
+      <div class="security-text">
+        <div class="section-title"><h2 class="section-title">Privacy & Security</h2></div>
+        <p class="security-description">
+          Our Centralized Bio Data System ensures data security through end-to-end encryption,
+          blockchain verification, and role-based MySQL storage. We prioritize transparency,
+          immutability, and secure access — your data, your control.
+        </p>
+        <p class="security-description">
+          Blockchain technology reinforces the authenticity of each biodata entry. 
+          Every cube you see here symbolizes a cryptographic block connected in a 
+          decentralized chain of trust.
+        </p>
+  
+        <!-- Feature Points -->
+        <div class="security-features">
+          <div class="feature"><i class="ri-lock-line"></i> Encrypted Bio Data</div>
+          <div class="feature"><i class="ri-shield-check-line"></i> Blockchain Integrity</div>
+          <div class="feature"><i class="ri-fingerprint-line"></i> Secure Authentication</div>
+          <div class="feature"><i class="ri-database-2-line"></i> MySQL Controlled Storage</div>
+        </div>
+      </div>
+  
+      <div class="security-visual">
+        <div class="cube-grid-fixed">
+          <!-- Top Row -->
+          <div class="cube-row">
+            <div class="cube-wrapper"><div class="cube"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div></div>
+            <div class="line-horizontal"></div>
+            <div class="cube-wrapper"><div class="cube highlight"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div></div>
+            <div class="line-horizontal"></div>
+            <div class="cube-wrapper"><div class="cube"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div></div>
+          </div>
+      
+          <!-- Vertical Connections -->
+          <div class="cube-verticals">
+            <div class="line-vertical"></div>
+            <div class="line-vertical"></div>
+            <div class="line-vertical"></div>
+          </div>
+      
+          <!-- Bottom Row -->
+          <div class="cube-row">
+            <div class="cube-wrapper"><div class="cube"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div></div>
+            <div class="line-horizontal"></div>
+            <div class="cube-wrapper"><div class="cube highlight"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div></div>
+            <div class="line-horizontal"></div>
+            <div class="cube-wrapper"><div class="cube"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div></div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+          <!--Contact section-->
+          <div class="contacts">
+          <div id="contact" class="contact-section">
+            <div class="section-content">
+                <div class="center">
+                    <div class="form-wrapper">
+                        <div class="contact-heading">
+                            <h1>Let's work together<span>.</span></h1>
+                            <p class="text">or reach us via:<a href="mailto:vs12sona@gmail.com">vs12sona@gmail.com</a></p>
+                        </div>
+                        <form action="http://localhost:3000/contact" method="post" class="contact-form">
+
+
+                            <div class="input-wrap">
+                                <input class="contact-input" autocomplete="off" name="firstName" type="text" required>
+                                <label>First Name</label>
+                                <i class="icon ri-id-card-fill"></i>
+                            </div>
+                            <div class="input-wrap">
+                                <input class="contact-input" autocomplete="off" name="lastName" type="text" required>
+                                <label>Last Name</label>
+                                <i class="icon ri-id-card-fill"></i>
+                            </div>
+                            <div class="input-wrap w-100" >
+                                <input class="contact-input" autocomplete="off" name="email" type="email" required>
+                                <label>Email</label>
+                                <i class="icon ri-mail-fill"></i>
+                            </div>
+                            <div class="input-wrap textarea w-100" >
+                                <textarea name="message" autocomplete="off" class="contact-input" required></textarea>
+                                <label>Message</label>
+                                <i class="icon ri-message-fill"></i>
+                            </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                        </div>
+                </div>
+                      </div>
+                      </div>
+                      </div>
+                  <!--Footer section-->
+                  <section class="footer-section">
+                    <div class="footer-container">
+                      <div class="footer-col">
+                        <img src="srp logo.jpg" class="footer-logo" alt="SRP Logo">
+                        <p class="footer-description">
+                          Simplify your biodata management with our smart, centralized system. Secure, accessible, and always up to date. Subscribe now to stay connected and organized!
+                        </p>
+                      </div>
+                  
+                      <div class="footer-col">
+                        <h3>Office <span class="underline"></span></h3>
+                        <p>Road No. 45</p>
+                        <p>Banjara Hills</p>
+                        <p>Hyderabad, PIN 500062, India</p>
+                        <p class="footer-email">vs12sona@gmail.com</p>
+                        <p class="footer-phone">+91-8374094222</p>
+                      </div>
+                  
+                      <div class="footer-col">
+                        <h3>Quick Links <span class="underline"></span></h3>
+                        <ul class="footer-links">
+                          <li><a href="#home">Home</a></li>
+                          <li><a href="#about">About</a></li>
+                          <li><a href="#careers">Careers</a></li>
+                          <li><a href="#security&privacy">Security & Privacy</a></li>
+                          <li><a href="#contact">Contact</a></li>
+                        </ul>
+                      </div>
+                  
+                      <div class="footer-col">
+                        <h3>Follow Us</h3>
+                        <div class="footer-social-icons">
+                          <i class="ri-facebook-fill"></i>
+                          <i class="ri-twitter-fill"></i>
+                          <i class="ri-instagram-fill"></i>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <!-- <div class="footer-bottom">
+                      <p>Info Edge © 2025. All rights reserved.</p>
+                    </div> -->
+                  </section>
+                  
+                  
+                    
+                   <script>
+                    // Function to show toast message
+                    function showToast(message) {
+                      const toast = document.getElementById('toast');
+                      toast.textContent = message;
+                      toast.classList.add('show');
+                      setTimeout(() => {
+                        toast.classList.remove('show');
+                      }, 3000);
+                    }
+                  
+          
+                  </script>
+                 <script>
+                  document.addEventListener("DOMContentLoaded", function() {
+    const loginForm = document.getElementById("loginform");
+    const registerForm = document.getElementById("registerform");
+
+    loginForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const email = loginForm.elements["email"].value;
+        const password = loginForm.elements["password"].value;
+
+        fetch("http://localhost:3000/login", {   // ✅ include the correct backend URL
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password })
+})
+
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert(data.message);
+            if (data.message === "Login successful") {
+              sessionStorage.setItem("userEmail", data.email); 
+                window.location.href = "biodata.html";  // Redirect to biodata.html
+            }
+        })
+        .catch(error => {
+            console.error("Login error:", error);
+            alert("Login failed. Please try again.");
+        });
+    });
+
+    registerForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = registerForm.elements["name"].value;
+        const email = registerForm.elements["email"].value;
+        const password = registerForm.elements["password"].value;
+
+        fetch("http://localhost:3000/register", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ name, email, password })
+})
+
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(data => {
+            alert(data);
+            if (data === "Registered successfully") {
+                window.location.href = "srp.html";
+            }
+        })
+        .catch(error => {
+            console.error("Registration error:", error);
+            alert("Registration failed. Please try again.");
+        });
+    });
+
+    // ... your contact form script ...
+});
+              </script>
+ 
+                  
+                  
+<script>
+  const form = document.querySelector(".contact-form");
+  const popup = document.createElement("div");
+
+  // Style the popup
+  popup.style.position = "fixed";
+  popup.style.bottom = "30px";
+  popup.style.left = "50%";
+  popup.style.transform = "translateX(-50%)";
+  popup.style.padding = "12px 20px";
+  popup.style.backgroundColor = "#28a745";
+  popup.style.color = "#fff";
+  popup.style.borderRadius = "8px";
+  popup.style.fontWeight = "bold";
+  popup.style.display = "none";
+  popup.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+  popup.style.zIndex = "1000";
+  document.body.appendChild(popup);
+
+  function showPopup(message, success = true) {
+    popup.innerText = message;
+    popup.style.backgroundColor = success ? "#28a745" : "#dc3545"; // green or red
+    popup.style.display = "block";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 3000); // hide after 3 seconds
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const body = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      message: formData.get("message")
+    };
+
+    try {
+      const res = await fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+
+      const text = await res.text();
+
+      if (res.ok) {
+        showPopup(text, true); // ✅ success
+        form.reset();
+      } else {
+        showPopup(text || "❌ Submission failed", false); // ❌ failure
+      }
+    } catch (err) {
+      showPopup("❌ Server error: " + err.message, false);
+    }
+  });
+</script>
+<script>
+  window.addEventListener('load', () => {
+      document.querySelector('.home-content').classList.add('visible');
+  });
+  </script>
+  
+                            
+    </body>
+</html>
