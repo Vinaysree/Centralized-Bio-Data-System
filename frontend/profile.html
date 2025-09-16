@@ -175,7 +175,7 @@ nav a:hover::after{
         <a href="srp.html#security&privacy" class="nav-link">Security</a>
         <a href="srp.html#contact" class="nav-link">Contact</a>
         <a href="profile.html" id="profile-icon" title="View Profile">
-          <img src="profile-icon.jpg" alt="Profile" style="width: 32px; height: 32px; cursor: pointer;">
+          <img src="images/profile-icon.jpg" alt="Profile" style="width: 32px; height: 32px; cursor: pointer;">
         </a>
         
     </div>
@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let imageHtml = '';
       if (profile.profile_picture) {
-        imageHtml = `<img src="http://localhost:3000/uploads/${profile.profile_picture}" alt="Profile Picture">`;
+        imageHtml = `<img src="images/http://localhost:3000/uploads/${profile.profile_picture}" alt="Profile Picture">`;
       }
 
       const frontHtml = `
